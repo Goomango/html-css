@@ -7,20 +7,24 @@
       * {
         padding: 0;
         margin: 0;
+        box-sizing: border-box;
+      }
+      html {
+        height: 100%;
       }
       body {
-        margin: 10px;
+        height: 100%;
       }
       #wrap {
-        width: 100%;
-        height: 1000px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 10px;
       }
       header {
         margin-bottom: 10px;
         width: 100%;
         border: 5px solid #ef9a9a;
-        box-sizing: border-box;
-        /* border: 1px solid pink; */
       }
       header > div {
         text-align: center;
@@ -30,94 +34,88 @@
         color: #ef9a9a;
       }
 
+      .body {
+        display: flex;
+        height: 100%;
+      }
       aside {
-        float: left;
-        width: 132px;
+        width: 140px;
         height: 100%;
         padding: 8px;
         border: 5px solid black;
-        box-sizing: border-box;
-        /* border: 1px solid black; */
       }
       aside > div {
-        font-size: 30px;
+        font-size: 28px;
         margin-bottom: 4px;
       }
       section {
-        overflow: hidden;
-        float: left;
-        width: 90%;
         height: 100%;
-        margin-left: 1%;
-        padding: 1%;
+        margin-left: 10px;
         border: 5px solid lightblue;
-        box-sizing: border-box;
-        /* border: 1px solid blue; */
       }
-      section > div {
-        width: 14.5%;
-        height: 170px;
-        margin: 1%;
-        float: left;
+      section .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      section .container .item {
+        width: 200px;
+        height: 200px;
+        padding: 10px;
+        margin: 10px;
         border-radius: 5px;
-        background-color: #ff9800;
+        text-align: center;
       }
 
-      /* 화면너비1260~ 베이지, 5단 */
-      @media (min-width: 1260px) {
-        #wrap {
-          width: 90%;
-        }
-        section > div {
-          width: 14%;
-          background-color: beige;
-        }
+      section .container .item img {
+        width: 178px;
       }
 
-      /* 화면 너비 1040 ~ 1259, 베이지, 4단 */
+      section .container .item span {
+        display: inline-block;
+        font-size: 18px;
+        margin-top: 5px;
+        text-align: center;
+      }
 
-      @media (min-width: 1040px) and (max-width: 1259px) {
-        #wrap {
+      /* 화면 너비 1000 ~ 1259, 베이지, 4단 */
+
+      @media (min-width: 1000px) {
+        section {
           width: 100%;
         }
-        section {
-          width: 90%;
-          box-sizing: border-box;
-        }
-        section > div {
-          width: 23%;
+        section .container .item {
           background-color: beige;
         }
       }
 
-      /* 화면너비 1000 ~1039 베이지,3단 */
-
-      @media (min-width: 1000px) and (max-width: 1039) {
+      /* 700~999 핑크색 */
+      @media (min-width: 700px) and (max-width: 999px) {
+        section .container .item {
+          background-color: #ef9a9a;
+        }
       }
-      /* 820~999 핑크색, 3단 */
-      @media (min-width: 820px) and (max-width: 999px) {
+      /* 600~ 민트색*/
+      @media (min-width: 600px) and (max-width: 699px) {
+        section .container .item {
+          background-color: mediumaquamarine;
+        }
       }
-      /* 700~819 핑크색, 2단 */
-      @media (min-width: 700px) and (max-width: 819px) {
-      }
-      /* 600~ 민트색, 2단*/
-      @media (min-width: 600) and (max-width: 699px) {
-      }
-      /* 0~ 599 민트색, 1단 */
+      /* 0~ 599 민트색 */
       @media (max-width: 599px) {
         #wrap {
-          width: 100%;
-        }
-        aside {
-          width: 25%;
+          height: 100%;
         }
         section {
-          width: 74%;
+          height: 100%;
         }
-        section > div {
-          width: 60%;
+        section .container {
+          display: block;
+          height: 100%;
+          overflow: scroll;
         }
-        section > div img {
+        section .container .item {
+          background-color: mediumaquamarine;
         }
       }
     </style>
@@ -127,21 +125,43 @@
       <header>
         <div>고량주</div>
       </header>
-      <aside>
-        <div>소주</div>
-        <div>맥주</div>
-        <div>샴페인</div>
-        <div>와인</div>
-        <div>럼</div>
-      </aside>
-      <section>
-        <div>빈</div>
-        <div>빈</div>
-        <div>빈</div>
-        <div>빈</div>
-        <div>빈</div>
-        <div>빈</div>
-      </section>
+      <div class="body">
+        <aside>
+          <div>소주</div>
+          <div>맥주</div>
+          <div>샴페인</div>
+          <div>와인</div>
+          <div>럼</div>
+        </aside>
+        <section>
+          <div class="container">
+            <div class="item">
+              <img src="imges/soju.png" alt="소주" />
+              <span>저는 소주를 안 좋아해요!</span>
+            </div>
+            <div class="item">
+              <img src="imges/beer.jpg" alt="맥주" />
+              <span>애플퐉스같은 맛있는 맥주가 좋아요.</span>
+            </div>
+            <div class="item">
+              <img src="imges/champagne.jpg" alt="샴페인" />
+              <span>샴페인 좋아요~샴페인 좋아요~</span>
+            </div>
+            <div class="item">
+              <img src="imges/wine.jpg" alt="와인" />
+              <span>와인의 매력을 아직 깨닫지 못했어요.</span>
+            </div>
+            <div class="item">
+              <img src="imges/rum.jpg" alt="럼" />
+              <span>먹어본 적이 없을 무!</span>
+            </div>
+            <div class="item">
+              <img src="imges/rum.jpg" alt="럼" />
+              <span>먹어본 적이 없을 무!</span>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   </body>
 </html>
