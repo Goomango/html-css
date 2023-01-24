@@ -11,7 +11,31 @@
         <div>고량주</div>
       </header>
       <div class="body">
+        <div id="formBG" class="form-background">
+          <form id="form">
+            <span id="form-X" class="cancel">X</span>
+            <label for="name">이름</label>
+            <input
+              id="name"
+              required
+              maxlength="15"
+              type="text"
+              placeholder="What your name?"
+            />
+            <label for="image">이미지</label>
+            <input id="image" required placeholder="URL" type="text" />
+            <label for="content">내용</label>
+            <input
+              id="content"
+              required
+              placeholder="Please enter the contents"
+              type="text"
+            />
+            <button type="submit">저장</button>
+          </form>
+        </div>
         <aside>
+          <button type="button" id="add">추가</button>
           <div>소주</div>
           <div>맥주</div>
           <div>샴페인</div>
@@ -48,5 +72,6 @@
         </section>
       </div>
     </div>
+    <script src="form.js"></script>
   </body>
 </html>
